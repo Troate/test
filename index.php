@@ -19,6 +19,7 @@ and open the template in the editor.
         /**
          * 
          * Adds two integers
+         * Making Changes
          * 
          * @param int $a
          * @param int $b
