@@ -21,6 +21,7 @@ and open the template in the editor.
          * Adds two integers
          * Change1
          * Change2
+         * Change3
          * 
          * @param int $a
          * @param int $b
