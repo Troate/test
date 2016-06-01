@@ -20,6 +20,7 @@ and open the template in the editor.
          * 
          * Adds two integers
          * Making Changes
+         * Some More Changes
          * 
          * @param int $a
          * @param int $b
