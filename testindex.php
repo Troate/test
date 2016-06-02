@@ -7,6 +7,7 @@
  */
 
 require_once 'index.php';
+require_once 'connectDb.php';
 
 class test extends PHPUnit_Framework_TestCase
 {
@@ -19,6 +20,19 @@ class test extends PHPUnit_Framework_TestCase
         $b=2;
         $c=add($a, $b);
         $this->assertEquals(4,$c);
+    }
+    
+    /**
+     * Tests the function con() in connectDb.php
+     */
+    
+    public function testConnectDb() 
+    {
+        $host="localhost";
+        $db="test";
+        $user="testUser";
+        $pass="testpass";
+        $this->assertTrue(con($host, $db, $user, $pass));
     }
 }
 
