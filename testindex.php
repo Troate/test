@@ -8,11 +8,13 @@
 
 require_once 'index.php';
 require_once 'connectDb.php';
+require_once 'filing.php';
+
 
 class test extends PHPUnit_Framework_TestCase
 {
     /**
-     * This is Unit Testing
+     * This File contains test functions for different files
      */
     public function testadd()
     {
@@ -34,6 +36,17 @@ class test extends PHPUnit_Framework_TestCase
         $pass="testpass";
         $this->assertTrue(con($host, $db, $user, $pass));
     }
+    
+    /**
+     * Test the function filing() in filing.php
+     */
+    
+    public function testfiling()
+    {
+        $name="fileToRead.txt";
+        $this->assertTrue(filing($name));
+    }
+    
 }
 
 ?>
