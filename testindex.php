@@ -9,6 +9,7 @@
 require_once 'index.php';
 require_once 'connectDb.php';
 require_once 'filing.php';
+require_once 'serverSocket.php';
 
 
 class test extends PHPUnit_Framework_TestCase
@@ -45,6 +46,17 @@ class test extends PHPUnit_Framework_TestCase
     {
         $name="fileToRead.txt";
         $this->assertTrue(filing($name));
+    }
+    
+    /**
+     * THis function tests connectSocket() in serverSocket.php
+     */
+    
+    public function testserverSocket()
+    {
+        $address="127.0.0.1";
+        $port="10000";
+        $this->assertTrue(connectSocket($address, $port));
     }
     
 }
