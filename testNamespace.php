@@ -12,11 +12,7 @@
 
 include 'apple.php';
 include 'pear.php';
-use fruit1;
-use fruit2;
 
-echo \fruit1\apple::getName()."\n";
-echo \fruit2\apple::getName();
 
 /**
  * This Function checks the output of the two classes with different name but different namespaces

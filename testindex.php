@@ -11,7 +11,7 @@ require_once 'connectDb.php';
 require_once 'filing.php';
 require_once 'serverSocket.php';
 require_once 'testNamespace.php';
-
+require_once 'abstraction.php';
 
 class test extends PHPUnit_Framework_TestCase
 {
@@ -20,6 +20,7 @@ class test extends PHPUnit_Framework_TestCase
      */
     public function testadd()
     {
+        echo "\n---Dummy Test:Test Add---\n";
         $a=2;
         $b=2;
         $c=add($a, $b);
@@ -32,6 +33,7 @@ class test extends PHPUnit_Framework_TestCase
     
     public function testConnectDb() 
     {
+        echo "\n---Databse Test---\n";
         $host="localhost";
         $db="test";
         $user="testUser";
@@ -45,12 +47,13 @@ class test extends PHPUnit_Framework_TestCase
     
     public function testfiling()
     {
+        echo "\n---Filing Test---\n";
         $name="fileToRead.txt";
         $this->assertTrue(filing($name));
     }
     
     /**
-     * THis function tests connectSocket() in serverSocket.php
+     * This function tests connectSocket() in serverSocket.php
      */
     
 //    public function testserverSocket()
@@ -66,9 +69,23 @@ class test extends PHPUnit_Framework_TestCase
     
     public function testTestNamespace()
     {
+        echo "\n---Namespace Test---\n";
         $check1="oootpatang";
         $check2="temptas";
         $this->assertTrue(testnamespace($check1,$check2));
+    }
+    
+    
+    /**
+     * Tests the abstraction concept from abstraction.php
+     */
+    public function testAbstraction()
+    {
+        echo "\n---Abstraction Test---\n";
+        $cc1=new Concrete1;
+        $cc2=new Concrete2;
+        $this->assertEquals($cc1->printout(),"ConcreteClass1");
+        $this->assertEquals($cc2->printout(),"ConcreteClass2");
     }
     
 }

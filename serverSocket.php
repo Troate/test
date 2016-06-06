@@ -13,8 +13,8 @@
  * @return boolean True if it connects else false
  */
 
-//function connectSocket($address="127.0.0.1", $port="10000")
-//{
+function connectSocket($address="127.0.0.1", $port="10000")
+{
 error_reporting(E_ALL);
 
 /* Allow the script to hang around waiting for connections. */
@@ -58,5 +58,5 @@ echo "Waiting for Client...\n";
 
 socket_close($sock);
 return true;
-//}
+}
 ?>

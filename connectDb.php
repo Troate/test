@@ -12,7 +12,7 @@
     function con($host, $db, $user, $pass)
     {
         if(!@mysql_connect($host, $user, $pass)||!@mysql_select_db($db)){
-            die('Could Not Connect!');
+            die('Could Not Connect to Database!');
             return false;
         }else{
             return TRUE;
