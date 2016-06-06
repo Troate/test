@@ -13,6 +13,7 @@ require_once 'serverSocket.php';
 require_once 'testNamespace.php';
 require_once 'abstraction.php';
 require_once 'Inheritance.php';
+require_once 'PolyandInterface.php';
 
 class test extends PHPUnit_Framework_TestCase
 {
@@ -104,6 +105,19 @@ class test extends PHPUnit_Framework_TestCase
         $this->assertEquals($shape2->printout(),4);
         $shape3->setSides(3);
         $this->assertEquals($shape3->printer(),3);
+    }
+    
+    /**
+     * Tests Polymorphism concept from PolyandInterface.php
+     */
+    public function testPoly()
+    {
+        echo "\n---Polymorphism Test---\n";
+        $push=new PushButton;
+        $pull=new PullDown;
+        $b=array($push,$pull);
+        $this->assertEquals($b[0]->pressButton(),"Pushed");
+        $this->assertEquals($b[1]->pressButton(),"Pulled");
     }
 }
 
