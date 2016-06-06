@@ -12,6 +12,7 @@ require_once 'filing.php';
 require_once 'serverSocket.php';
 require_once 'testNamespace.php';
 require_once 'abstraction.php';
+require_once 'Inheritance.php';
 
 class test extends PHPUnit_Framework_TestCase
 {
@@ -88,6 +89,22 @@ class test extends PHPUnit_Framework_TestCase
         $this->assertEquals($cc2->printout(),"ConcreteClass2");
     }
     
+    /**
+     * Test Inheritance concept from Igeritance.php
+     */
+    public function testInheritance()
+    {
+        echo "\n---Inheritance Test---\n";
+        $shape1=new Shape();
+        $shape2=new Square();
+        $shape3=new Triangle();
+        $shape1->setSides(5);
+        $this->assertEquals($shape1->getSides(),5);
+        $shape2->setSides(4);
+        $this->assertEquals($shape2->printout(),4);
+        $shape3->setSides(3);
+        $this->assertEquals($shape3->printer(),3);
+    }
 }
 
 ?>
