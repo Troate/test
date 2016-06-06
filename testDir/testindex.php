@@ -6,15 +6,14 @@
  * and open the template in the editor.
  */
 
-require_once 'index.php';
-require_once 'connectDb.php';
-require_once 'filing.php';
-require_once 'serverSocket.php';
-require_once 'testNamespace.php';
-require_once 'abstraction.php';
-require_once 'Inheritance.php';
-require_once 'PolyandInterface.php';
-
+include '../index.php';
+include '../connectDb.php';
+include '../filing.php';
+include '../serverSocket.php';
+include '../testNamespace.php';
+include '../abstraction.php';
+include '../Inheritance.php';
+include '../PolyandInterface.php';
 class test extends PHPUnit_Framework_TestCase
 {
     /**
@@ -50,7 +49,7 @@ class test extends PHPUnit_Framework_TestCase
     public function testfiling()
     {
         echo "\n---Filing Test---\n";
-        $name="fileToRead.txt";
+        $name="../fileToRead.txt";
         $this->assertTrue(filing($name));
     }
     
