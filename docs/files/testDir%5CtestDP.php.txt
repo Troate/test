@@ -2,6 +2,7 @@
 
 include '../singleton.php';
 include '../factory.php';
+include '../orm.php';
 
 /**
  * Test the Design Patterns
@@ -17,15 +18,14 @@ class testDP extends PHPUnit_Framework_TestCase
     public function testSingleton($obj,$result) {
         $obj=Singleton::getInstance();
         $this->assertEquals($obj,$result);
-        return $obj;
     }
     /**
      * DataProvider of testSingleton
      */
     public function singleDataProv() {
         $obj=null;
-        return array($obj=array($obj,"new"),
-                     $obj=array($obj,"old"));
+        return array(array($obj,"new"),
+                     array($obj,"old"));
     }
     
     /**
@@ -42,6 +42,20 @@ class testDP extends PHPUnit_Framework_TestCase
      */
     public function testFactoryDP() {
         return array(array("Customer"));
+    }
+    
+    /**
+     * @dataProvider testORMDP
+     * @param string $fun Name of Function
+     */
+    public function testORM($fun) {
+        $this->assertTrue(Model::$fun());
+    }
+    /**
+     * DataProvider of testORM()
+     */
+    public function testORMDP() {
+        return array(array("selectModel"));
     }
 }
 
