@@ -9,11 +9,8 @@
 /**
  * Using Two classes with same name but different values inside, and they have different Namespaces.
  */
-
 include 'apple.php';
 include 'pear.php';
-
-
 /**
  * This Function checks the output of the two classes with different name but different namespaces
  * @return boolean Return true if it gets the right values
