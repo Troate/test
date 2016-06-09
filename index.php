@@ -11,6 +11,12 @@ and open the template in the editor.
     </head>
     <body>
         <?php
+        /**
+         *Defines ROOTPATH and Global Variable of Absolute Path
+         */
+        
+        $GLOBALS['Root']='C:\xampp\htdocs\testphp';
+        define('ROOTPATH', 'C:\xampp\htdocs\testphp');
         // put your code here
         /**
          * A Comment

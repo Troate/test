@@ -1,18 +1,43 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * It contains the Concepts of Polymorphism and Interface
  */
 
+/**
+ * Button is Interface Class and contains n e function pressButton()
+ */
 interface Button
 {
+    /**
+     * It is the non-defined function in interface Button
+     */
     public function pressButton();
 }
 
-class PushButton implements Button
+
+/**
+ * It implements the interface Button and defines funtion pressButton()
+ */
+class concreteButton implements Button
 {
+    /**
+     * Prints Concrete Button Do Nothing
+     */
+    public function pressButton() {
+        echo "Concrete Button Do Nothing\n";
+    }
+}
+
+/**
+ * Child class of concreteButton, has its own definition of pressButton()
+ */
+class PushButton extends concreteButton
+{
+    /**
+     * It is the definition of pressButton() from concreteButton and interface Button
+     * @return string Returns Pushed
+     */
     public function pressButton()
     {
         echo "Pushed\n";
@@ -20,8 +45,15 @@ class PushButton implements Button
     }
 }
 
-class PullDown implements Button
+/**
+ * Child class of concreteButton, has its own definition of pressButton()
+ */
+class PullDown extends concreteButton
 {
+    /**
+     * It is the definition of pressButton() from concreteButton and interface Button
+     * @return string Returns Pulled
+     */
     public function pressButton() {
         echo "Pulled\n";
         return "Pulled";

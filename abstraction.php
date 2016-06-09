@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Contains the Code for the concept of Abstraction
+ */
 
 /**
  * This is an abstract class

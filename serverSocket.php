@@ -1,18 +1,15 @@
 <?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Contains code for socket server side
  */
 
+
 /**
- * This is Server Socket Function -_-
+ * This is Server Socket Function
  * @param string $address Address of the Server
  * @param string $port Port to Connect to
  * @return boolean True if it connects else false
  */
-
 function connectSocket($address="127.0.0.1", $port="10000")
 {
 error_reporting(E_ALL);

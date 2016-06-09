@@ -1,23 +1,28 @@
 <?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * It is the Test file for Connecting DB, Filing, Namespace, Inheritance and Polymorphism and Server Side code of Socket
  */
 
+/**
+ * It is the Test file for Connecting DB, Filing, Namespace, Inheritance and Polymorphism and Server Side code of Socket
+ */
 include '../index.php';
-include '../connectDb.php';
-include '../filing.php';
+require ROOTPATH.'/connectDb.php';
+include $GLOBALS['Root'].'/filing.php';
 include '../serverSocket.php';
 include '../testNamespace.php';
 include '../abstraction.php';
 include '../Inheritance.php';
 include '../PolyandInterface.php';
+use rock;
+
+/**
+ * Contains Functions for testing different Functionalities like Connecting DB, Filing, Namespace, Inheritance and Polymorphism and Server Side code of Socket
+ */
 class test extends PHPUnit_Framework_TestCase
 {
     /**
-     * This File contains test functions for different files
+     * This is dummy Function
      */
     public function testadd()
     {
@@ -29,6 +34,7 @@ class test extends PHPUnit_Framework_TestCase
     }
     
     /**
+     * Tests Connection to Database
      * @param string $host Servername
      * @param string $db Database name
      * @param string $user Username to connect to Database
@@ -36,7 +42,6 @@ class test extends PHPUnit_Framework_TestCase
      * @dataProvider testConnectDbDP
      * Tests the function con() in connectDb.php
      */
-    
     public function testConnectDb($host,$db,$user,$pass) 
     {
         echo "\n---Databse Test---\n";
@@ -51,40 +56,58 @@ class test extends PHPUnit_Framework_TestCase
     
     /**
      * Test the function filing() in filing.php
+     * @param string $name Name of File to do Filing
+     * @dataProvider testfilingDP
      */
-    
-    public function testfiling()
+    public function testfiling($name)
     {
         echo "\n---Filing Test---\n";
-        $name="../fileToRead.txt";
         $this->assertTrue(filing($name));
+    }
+    /**
+     * DataProvider of testfiling()
+     */
+    public function testfilingDP() {
+        return array(array("../fileToRead.txt"));
     }
     
     /**
      * This function tests connectSocket() in serverSocket.php
+     * @param string $address Address to connect to server
+     * @param string $port Port to connect to server
+     * @dataProvider testserverSocketDP
      */
-    
-//    public function testserverSocket()
+//    public function testserverSocket($address,$port)
 //    {
-//        $address="127.0.0.1";
-//        $port="10000";
 //        $this->assertTrue(connectSocket($address, $port));
 //    }
-    
     /**
-     * This function tests Namespace stuff
+     * DataProvider of testserverSocket()
      */
-    
-//    public function testTestNamespace()
-//    {
-//        echo "\n---Namespace Test---\n";
-//        $check1="oootpatang";
-//        $check2="temptas";
-//        $this->assertTrue(testnamespace($check1,$check2));
+//    public function testserverSocketDP() {
+//        return array(array("127.0.0.1","10000"));
 //    }
     
+    /**
+     * Tests the concept of Namespace from the testnamespace.php
+     * @dataProvider testNamespaceDP
+     * This function tests Namespace stuff
+     */
+    public function testTestNamespace($check1,$check2)
+    {
+        echo "\n---Namespace Test---\n";
+        $this->assertTrue(rock\testnamespace($check1,$check2));
+    }
+    /**
+     * DataProvider of testTestNamespace
+     */
+    public function testNamespaceDP() {
+        return array(array("oootpatang","temptas"));
+    }
+    
     
     /**
+     * Tests the cincept of Abstraction from abstraction.php
      * @param string $class Class which needs to be initialized
      * @param string $result Expected Result of function $class::printout()
      * @dataProvider testAbstractionDP
@@ -105,6 +128,7 @@ class test extends PHPUnit_Framework_TestCase
     }
     
     /**
+     * Tests the concept of Inheritance from Inheritance.php
      * @param string $class Class which needs to be initialized
      * @param string $side Number of Sides of the Shape
      * @param string $result Expected Result of function $class::getSides()
@@ -128,6 +152,7 @@ class test extends PHPUnit_Framework_TestCase
     }
     
     /**
+     * Tests the Polymorphism Concept from PolyandInterface.php
      * @param string $class Class which needs to be initialized
      * @param string $result Expected Result of function $class::pressButton()
      * @dataProvider testPolyDP
@@ -137,7 +162,9 @@ class test extends PHPUnit_Framework_TestCase
     {
         echo "\n---Polymorphism Test---\n";
         $obj=new $class;
-        $b=array($obj);
+        $b[]=new concreteButton;
+        $b= array();
+        array_push($b, $obj);
         $this->assertEquals($b[0]->pressButton(),$result);
     }
     /**

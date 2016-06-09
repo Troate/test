@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Connects to Database, and run queries
+ */
 
     /**
      * Connects to the Database. It takes (hostname, database, username, password) to connect to the database and returns true if database is connected.
@@ -18,6 +20,17 @@
             return TRUE;
         }
     }
-
+    
+    /**
+     * Runs the Query given to it
+     * @param string $query It is a string query to run on Database
+     * @return Resource It contains the result of the query
+     */
+    function runQuery($query)
+    {
+        con();
+        $res=mysql_query($query)or die(mysql_error());
+        return $res;
+    }
 
 ?>

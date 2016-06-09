@@ -1,15 +1,22 @@
 <?php
+/**
+ * Tests Design Patterns
+ */
 
+/**
+ * Tests Design Patterns
+ */
 include '../singleton.php';
 include '../factory.php';
 include '../orm.php';
 
 /**
- * Test the Design Patterns
+ * This Class Contains Functions to Test the Design Patterns
  */
 class testDP extends PHPUnit_Framework_TestCase
 {
     /**
+     * Tests the Design Pattern: Singleton
      * @dataProvider singleDataProv
      * @param Object $obj
      * @param string $result Expected result of Singleton::getInstance()
@@ -45,6 +52,7 @@ class testDP extends PHPUnit_Framework_TestCase
     }
     
     /**
+     * Tests the concept of ORM
      * @dataProvider testORMDP
      * @param string $fun Name of Function
      */

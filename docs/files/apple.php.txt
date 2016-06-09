@@ -1,24 +1,29 @@
-<?php 
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+<?php
 /**
- * Description of apple
  * Just Class apple with name=ootpatang and Namespcae=fruit1
- * @author Troate
  */
+
 namespace fruit1;
+/**
+ * Class apple, with namespace fruit1 and private member $name
+ */
 class apple {
-    //put your code here
+    /**
+     * @var string name of object apple
+     */
     private $name="oootpatang";
+    /**
+     * Setter of private member $name
+     * @param string $_name To overwrite the default name of apple
+     */
     public function setName($_name)
     {
         apple::$name=$_name;
     }
+    /**
+     * Getter of Private member $name
+     * @return string Value of $name of apple
+     */
     public function getName()
     {
         return "oootpatang";

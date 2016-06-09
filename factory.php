@@ -1,9 +1,11 @@
 <?php
-
 /** 
  * Factory Design Pattern
  */
 
+/**
+ * Factory Class of Factory Method
+ */
 class Factory
 {
     /**
