@@ -130,11 +130,11 @@ class Model
         $values[2]=$m->getInfo();
         Database::insertQuery($tabelName,$values);
         //Database::runQuery($string);
-        throw new Exception;
+        return true;
         }catch (Exception $exc) {
         return false;
     }
-    return true;
+    
     }
     /**
      * Calls the function of Database, which gives row result, then make objects of Model and sets their ids, names and infos according to the result of query and then prints it
@@ -155,14 +155,11 @@ class Model
             array_push($models, $m);
             echo $m->getId()."\t".$m->getName()."\t".$m->getInfo()."\n";
         }
-        throw new Exception;
+        return true;
         }catch(Exception $e){
             return false;
         }
-        return true;
+        
     }
 
 }
-
-$m=new Model;
-$m->selectModel();
